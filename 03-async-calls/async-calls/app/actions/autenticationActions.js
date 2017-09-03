@@ -1,5 +1,6 @@
-export const setCode = () => ({
-  type: 'SET_CODE'
+export const setCode = code => ({
+  type: 'SET_CODE',
+  code
 });
 
 export const authRequestStart = () => ({

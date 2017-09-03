@@ -1,0 +1,37 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/rialba/Documents/marco/react-native-tutorials/03-async-calls/async-calls/App.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactRedux = require('react-redux');
+
+var _store = require('./app/store');
+
+var _store2 = babelHelpers.interopRequireDefault(_store);
+
+var _MainView = require('./app/containers/MainView');
+
+var _MainView2 = babelHelpers.interopRequireDefault(_MainView);
+
+var App = function App() {
+  return _react2.default.createElement(
+    _reactRedux.Provider,
+    { store: _store2.default, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7
+      }
+    },
+    _react2.default.createElement(_MainView2.default, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8
+      }
+    })
+  );
+};
+
+exports.default = App;

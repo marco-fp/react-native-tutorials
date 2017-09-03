@@ -15,26 +15,20 @@ const autenticationReducer = (state = initialState, action) => {
     case 'AUTH_REQUEST_START':
       return {
         ...state,
-        data: {
-          loading: true,
-        }
+        loading: true
       };
     case 'AUTH_REQUEST_SUCCESS':
       return {
         ...state,
-        data: {
-          error: '',
-          loading: false,
-          accessStatus: action.data
-        }
+        error: '',
+        loading: false,
+        accessStatus: action.data
       };
     case 'AUTH_REQUEST_ERROR':
       return {
         ...state,
-        data: {
-          loading: false,
-          accessStatus: action.error
-        }
+        loading: false,
+        accessStatus: action.error
       };
 
     default:

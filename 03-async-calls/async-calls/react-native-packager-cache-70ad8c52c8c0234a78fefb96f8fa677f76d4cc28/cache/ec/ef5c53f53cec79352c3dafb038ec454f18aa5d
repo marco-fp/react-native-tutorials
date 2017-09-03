@@ -1,0 +1,47 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var initialState = {
+  code: '',
+  accessStatus: 'No code sent',
+  loading: false
+};
+
+var autenticationReducer = function autenticationReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'SET_CODE':
+      return babelHelpers.extends({}, state, {
+        code: action.code
+      });
+    case 'AUTH_REQUEST_START':
+      return babelHelpers.extends({}, state, {
+        data: {
+          loading: true
+        }
+      });
+    case 'AUTH_REQUEST_SUCCESS':
+      return babelHelpers.extends({}, state, {
+        data: {
+          error: '',
+          loading: false,
+          accessStatus: action.data
+        }
+      });
+    case 'AUTH_REQUEST_ERROR':
+      return babelHelpers.extends({}, state, {
+        data: {
+          loading: false,
+          accessStatus: action.error
+        }
+      });
+
+    default:
+      return state;
+  }
+};
+
+exports.default = autenticationReducer;

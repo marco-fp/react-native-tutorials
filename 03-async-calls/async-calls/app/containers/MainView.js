@@ -17,9 +17,8 @@ const MainView = ({accessStatus, code, setCode, sendCode}) => (
         onChangeText={(text) => setCode(text)}
         value={code}
       />
-
       <Button
-        onPress={sendCode}
+        onPress={() => sendCode(code)}
         title="Access"
         color="#841584"
       />

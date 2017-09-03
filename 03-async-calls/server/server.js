@@ -9,10 +9,11 @@ app.use(function(req, res, next) {
 
 app.get('/info', function (req, res) {
   const code = req.query.code;
+  console.log('Request received, code: ', code);
   if (!code) {
     res.send({error: 'No code provided'});
   } else {
-    if (code !== 1337) {
+    if (code !== '1337') {
       res.send({error: 'Incorrect code provided'});
     } else {
       res.send({data: 'Access granted!'});
@@ -22,5 +23,5 @@ app.get('/info', function (req, res) {
 
 app.listen(8080, function () {
   console.log('React Native Tutorial - Async Calls Server.');
-  console.log('- Listening on port 8080.');)
+  console.log('- Listening on port 8080.');
 });

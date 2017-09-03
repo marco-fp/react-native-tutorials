@@ -1,0 +1,69 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _this = this;
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var setCode = exports.setCode = function setCode(code) {
+  return {
+    type: 'SET_CODE',
+    code: code
+  };
+};
+
+var authRequestStart = exports.authRequestStart = function authRequestStart() {
+  return {
+    type: 'AUTH_REQUEST_START'
+  };
+};
+
+var authRequestSuccess = exports.authRequestSuccess = function authRequestSuccess(data) {
+  return {
+    type: 'AUTH_REQUEST_SUCCESS',
+    data: data
+  };
+};
+
+var authRequestError = exports.authRequestError = function authRequestError(error) {
+  return {
+    type: 'AUTH_REQUEST_ERROR',
+    error: error
+  };
+};
+
+var authRequest = function authRequest(code) {
+  return regeneratorRuntime.async(function authRequest$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          return _context.abrupt('return', fetch('http://192.168.1.104:8080/info?code=' + code).then(function (res) {
+            return res.json();
+          }).catch(function (error) {
+            console.log('Network Error', error);return error;
+          }));
+
+        case 1:
+        case 'end':
+          return _context.stop();
+      }
+    }
+  }, null, _this);
+};
+
+var sendCode = exports.sendCode = function sendCode(code) {
+  return function (dispatch) {
+    dispatch(authRequestStart());
+    return authRequest(code).then(function (_ref) {
+      var error = _ref.error,
+          data = _ref.data;
+
+      if (error) {
+        dispatch(authRequestError(error));
+      } else {
+        dispatch(authRequestSuccess(data));
+      }
+    });
+  };
+};

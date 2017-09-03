@@ -1,0 +1,19 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = require('redux');
+
+var _autenticationReducer = require('./autenticationReducer');
+
+var _autenticationReducer2 = _interopRequireDefault(_autenticationReducer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var appReducers = (0, _redux.combineReducers)({
+  autentication: _autenticationReducer2.default
+});
+
+exports.default = appReducers;
