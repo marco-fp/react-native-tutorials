@@ -3,22 +3,22 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class App extends React.Component {
 
-  contructor(props) {
+  constructor(props) {
     super(props);
-    this.aumentarContador = this.aumentarContador.bind(this);
-    this.reducirContador = this.reducirContador.bind(this);
+    this.suma = this.suma.bind(this);
+    this.resta = this.resta.bind(this);
     this.state = {
       contador: 0
     }
   }
 
-  aumentarContador() {
+  suma() {
     this.setState({
       contador: this.state.contador + 1
     })
   }
 
-  reducirContador() {
+  resta() {
     this.setState({
       contador: this.state.contador - 1
     })
@@ -29,17 +29,19 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Contador valor={this.state.contador} />
 
-        <Button
-          onPress={this.aumentarContador}
-          title="Aumentar"
-          color="#841584"
-        />
+        <View style={styles.botones}>
+          <Button
+            onPress={this.suma}
+            title="Suma"
+            color="#841584"
+          />
 
-        <Button
-          onPress={this.reducirContador}
-          title="Reducir"
-          color="#841584"
-        />
+          <Button
+            onPress={this.resta}
+            title="Resta"
+            color="#841584"
+          />
+        </View>
       </View>
     );
   }
@@ -47,7 +49,7 @@ export default class App extends React.Component {
 
 const Contador = ({valor}) => (
   <View>
-    <Text>{valor}</Text>
+    <Text style={styles.contador}>{valor}</Text>
   </View>
 )
 
@@ -58,4 +60,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  contador: {
+    fontSize: 50,
+  },
+  botones: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '50%'
+  }
 });

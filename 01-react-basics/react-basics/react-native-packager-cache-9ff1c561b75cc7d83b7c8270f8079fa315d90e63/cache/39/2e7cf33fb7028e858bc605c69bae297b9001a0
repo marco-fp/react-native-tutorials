@@ -1,0 +1,164 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/rialba/Documents/marco/react-native-tutorials/01-react-basics/react-basics/App.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  App: {
+    displayName: 'App'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/rialba/Documents/marco/react-native-tutorials/01-react-basics/react-basics/App.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var App = _wrapComponent('App')(function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App(props) {
+    _classCallCheck(this, App);
+
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.suma = _this.suma.bind(_this);
+    _this.resta = _this.resta.bind(_this);
+    _this.state = {
+      contador: 0
+    };
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: 'suma',
+    value: function suma() {
+      this.setState({
+        contador: this.state.contador + 1
+      });
+    }
+  }, {
+    key: 'resta',
+    value: function resta() {
+      this.setState({
+        contador: this.state.contador - 1
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 29
+          }
+        },
+        _react3.default.createElement(Contador, { valor: this.state.contador, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30
+          }
+        }),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.botones, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 32
+            }
+          },
+          _react3.default.createElement(_reactNative.Button, {
+            onPress: this.suma,
+            title: 'Suma',
+            color: '#841584',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 33
+            }
+          }),
+          _react3.default.createElement(_reactNative.Button, {
+            onPress: this.resta,
+            title: 'Resta',
+            color: '#841584',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 39
+            }
+          })
+        )
+      );
+    }
+  }]);
+
+  return App;
+}(_react3.default.Component));
+
+exports.default = App;
+
+
+var Contador = function Contador(_ref) {
+  var valor = _ref.valor;
+  return _react3.default.createElement(
+    _reactNative.View,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      }
+    },
+    _react3.default.createElement(
+      _reactNative.Text,
+      { style: styles.contador, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52
+        }
+      },
+      valor
+    )
+  );
+};
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  contador: {
+    fontSize: 50
+  },
+  botones: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '50%'
+  }
+});
