@@ -8,7 +8,7 @@ export default styles = StyleSheet.create({
     justifyContent: 'center',
   },
   botones: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     width: '50%'
   }

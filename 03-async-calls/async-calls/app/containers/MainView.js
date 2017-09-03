@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -7,11 +7,16 @@ import styles from './../styles/App';
 import {sendCode, setCode} from './../actions/autenticationActions';
 import AccessInfo from './../components/AccessInfo';
 
-const MainView = ({accessStatus, code, sendCode}) => (
+const MainView = ({accessStatus, code, setCode, sendCode}) => (
   <View style={styles.container}>
     <AccessInfo status={accessStatus} />
 
     <View style={styles.botones}>
+
+      <TextInput
+        onChangeText={(text) => setCode(text)}
+        value={code}
+      />
 
       <Button
         onPress={sendCode}
@@ -24,7 +29,8 @@ const MainView = ({accessStatus, code, sendCode}) => (
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    sendCode
+    sendCode,
+    setCode
   }, dispatch);
 };
 
