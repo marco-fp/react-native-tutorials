@@ -1,0 +1,27 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var initialState = {
+  valor: 0
+};
+
+var contadorReducer = function contadorReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'COUNTER_ADD':
+      return {
+        valor: state.valor + 1
+      };
+    case 'COUNTER_MINUS':
+      return {
+        valor: state.valor - 1
+      };
+    default:
+      return state;
+  }
+};
+
+exports.default = contadorReducer;

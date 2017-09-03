@@ -1,0 +1,17 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = require('redux');
+
+var _contadorReducer = require('./contadorReducer');
+
+var _contadorReducer2 = babelHelpers.interopRequireDefault(_contadorReducer);
+
+var appReducers = (0, _redux.combineReducers)({
+  contador: _contadorReducer2.default
+});
+
+exports.default = appReducers;

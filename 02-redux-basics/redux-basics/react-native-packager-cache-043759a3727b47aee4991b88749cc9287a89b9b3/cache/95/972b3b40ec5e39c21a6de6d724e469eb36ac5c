@@ -1,0 +1,14 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var resta = exports.resta = function resta() {
+  return {
+    type: 'COUNTER_MINUS'
+  };
+};
+
+var suma = exports.suma = function suma() {
+  return {
+    type: 'COUNTER_ADD'
+  };
+};

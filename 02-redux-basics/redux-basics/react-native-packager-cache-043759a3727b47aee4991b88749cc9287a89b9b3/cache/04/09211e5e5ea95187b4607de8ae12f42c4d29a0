@@ -1,0 +1,85 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/rialba/Documents/marco/react-native-tutorials/02-redux-basics/redux-basics/app/containers/CounterView.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _reactRedux = require('react-redux');
+
+var _redux = require('redux');
+
+var _App = require('./../styles/App');
+
+var _App2 = babelHelpers.interopRequireDefault(_App);
+
+var _counterActions = require('./../actions/counterActions');
+
+var _Contador = require('./../components/Contador');
+
+var _Contador2 = babelHelpers.interopRequireDefault(_Contador);
+
+var CounterView = function CounterView(_ref) {
+  var valor = _ref.valor,
+      suma = _ref.suma,
+      resta = _ref.resta;
+  return _react2.default.createElement(
+    _reactNative.View,
+    { style: _App2.default.container, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11
+      }
+    },
+    _react2.default.createElement(_Contador2.default, { valor: valor, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12
+      }
+    }),
+    _react2.default.createElement(
+      _reactNative.View,
+      { style: _App2.default.botones, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        }
+      },
+      _react2.default.createElement(_reactNative.Button, {
+        onPress: suma,
+        title: 'Suma',
+        color: '#841584',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        }
+      }),
+      _react2.default.createElement(_reactNative.Button, {
+        onPress: resta,
+        title: 'Resta',
+        color: '#841584',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        }
+      })
+    )
+  );
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)({
+    suma: _counterActions.suma,
+    resta: _counterActions.resta
+  }, dispatch);
+};
+
+var mapStateToProps = function mapStateToProps(_ref2) {
+  var valor = _ref2.contador.valor;
+  return {
+    valor: valor
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CounterView);

@@ -1,0 +1,19 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = require('redux');
+
+var _contadorReducer = require('./contadorReducer');
+
+var _contadorReducer2 = _interopRequireDefault(_contadorReducer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var appReducers = (0, _redux.combineReducers)({
+  contador: _contadorReducer2.default
+});
+
+exports.default = appReducers;
